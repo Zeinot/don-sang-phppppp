@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Builder;
 class BookingResource extends Resource
 {
     protected static ?string $model = Booking::class;
-
+//
     protected static ?string $navigationIcon = 'heroicon-o-phone';
 
     public static function form(Form $form): Form
