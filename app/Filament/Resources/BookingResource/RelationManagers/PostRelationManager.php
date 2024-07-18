@@ -18,8 +18,6 @@ use Filament\Tables\Filters\QueryBuilder\Constraints\NumberConstraint;
 use Filament\Tables\Filters\QueryBuilder\Constraints\SelectConstraint;
 use Filament\Tables\Filters\QueryBuilder\Constraints\TextConstraint;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PostRelationManager extends RelationManager
 {
@@ -42,7 +40,7 @@ class PostRelationManager extends RelationManager
                         ])->collapsible(),
                     Section::make()
                         ->columns(1)
-                        ->columnSpan(1)->collapsible()  ->description("Collapse Infos")
+                        ->columnSpan(1)->collapsible()->description("Collapse Infos")
                         ->schema([
                             DateTimePicker::make("date")
                                 ->native(false)
@@ -222,7 +220,7 @@ class PostRelationManager extends RelationManager
             ->defaultPaginationPageOption(25)->columns([
                 TextColumn::make("id")
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(),
                 TextColumn::make("date")->dateTime('F d, Y H:i')
                     ->sortable()
                     ->toggleable(),
@@ -374,10 +372,14 @@ class PostRelationManager extends RelationManager
                 layout: FiltersLayout::Modal
             )
             ->filtersFormWidth(MaxWidth::FourExtraLarge)
+            ->headerActions([
+              Tables\Actions\CreateAction::make()
+            ])
             ->actions([
-                Tables\Actions\EditAction::make()->authorize(function (
-                    $record
-                ) {
+                //  Tables\Actions\AssociateAction::make()->authorize(function ($record) {
+                //      return $record->user_id == auth()->id();
+                //  }),
+                Tables\Actions\EditAction::make()->authorize(function ($record) {
                     return $record->user_id == auth()->id();
                 }),
                 Tables\Actions\DeleteAction::make(),
@@ -389,3 +391,4 @@ class PostRelationManager extends RelationManager
             ]);
     }
 }
+

@@ -48,7 +48,6 @@ class BookingRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('phone')
-
             ->columns([
                 Tables\Columns\TextInputColumn::make('phone')->rules(['required', "numeric", 'min_digits:1
 ', 'max_digits:15'])
@@ -81,10 +80,10 @@ class BookingRelationManager extends RelationManager
                 layout: FiltersLayout::Modal
             )
             ->filtersFormWidth(MaxWidth::FourExtraLarge)
+            ->headerActions([Tables\Actions\CreateAction::make()])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                Tables\Actions\CreateAction::make(),
 
             ])
             ->bulkActions([
