@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Admin\Resources\BookingResource\RelationManagers;
+namespace App\Filament\Admin\Resources\UserResource\RelationManagers;
 
 use Cheesegrits\FilamentGoogleMaps\Fields\Map;
 use Filament\Forms;
@@ -21,9 +21,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PostRelationManager extends RelationManager
+class PostsRelationManager extends RelationManager
 {
-    protected static string $relationship = 'post';
+    protected static string $relationship = 'posts';
 
     public function form(Form $form): Form
     {
@@ -42,7 +42,7 @@ class PostRelationManager extends RelationManager
                         ])->collapsible(),
                     Section::make()
                         ->columns(1)
-                        ->columnSpan(1)->collapsible()->description("Collapse Infos")
+                        ->columnSpan(1)->collapsible()  ->description("Collapse Infos")
                         ->schema([
                             DateTimePicker::make("date")
                                 ->native(false)
@@ -377,7 +377,8 @@ class PostRelationManager extends RelationManager
             ->headerActions([Tables\Actions\CreateAction::make()])
             ->actions([
 
-                Tables\Actions\DeleteAction::make(), Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
