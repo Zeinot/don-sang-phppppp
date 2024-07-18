@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->integer("available_seats");
-            $table->string("eligibility_criteria");
+            $table->text("eligibility_criteria");
             $table->json("types");
             $table->string("address");
             $table->dateTimeTz("date", precision: 0);
