@@ -374,6 +374,7 @@ class PostRelationManager extends RelationManager
                 layout: FiltersLayout::Modal
             )
             ->filtersFormWidth(MaxWidth::FourExtraLarge)
+            ->headerActions([Tables\Actions\CreateAction::make()])
             ->actions([
                 Tables\Actions\EditAction::make()->authorize(function (
                     $record

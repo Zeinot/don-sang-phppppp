@@ -81,6 +81,7 @@ class BookingsRelationManager extends RelationManager
                 layout: FiltersLayout::Modal
             )
             ->filtersFormWidth(MaxWidth::FourExtraLarge)
+            ->headerActions([Tables\Actions\CreateAction::make()])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
