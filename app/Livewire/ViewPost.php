@@ -36,7 +36,7 @@ class ViewPost extends Component implements HasForms, HasInfolists
                     Action::make("Book")->url(fn(): string => route('booking', ['post_id' => $this->post_id]))
                 ])
                 ->columns([
-                    "sm" => 3,
+                    "sm" => 1,
                     "xl" => 3,
                     "2xl" => 3,
                 ])

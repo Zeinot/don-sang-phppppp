@@ -24,6 +24,7 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->passwordReset()
             ->id('admin')->spa()
             ->path('admin')->login()->brandName("Admin Panel")->registration()
             ->navigationItems([

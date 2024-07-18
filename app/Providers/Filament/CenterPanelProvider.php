@@ -25,7 +25,9 @@ class CenterPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        return $panel->spa()->navigationItems([
+        return $panel->spa()
+            ->passwordReset()
+            ->navigationItems([
             NavigationItem::make('Home')
                 ->url('/')
                 ->icon('heroicon-o-chevron-double-left')])
