@@ -55,7 +55,7 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Post::class);
     }
 
-    public function canAccessPanel(Panel $panel): bool
+    public function canAccessPanel(\Filament\Panel $panel): bool
     {
         return true;
     }
