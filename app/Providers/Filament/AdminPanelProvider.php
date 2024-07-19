@@ -26,8 +26,11 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->passwordReset()
-            ->id('admin')->spa()
-            ->path('admin')->login()->brandName("Admin Panel")->registration()
+            ->id('admin')
+            ->spa()
+            ->path('admin')
+            ->login()
+            ->brandName("Admin Panel")->registration()
             ->navigationItems([
                 NavigationItem::make('Home')
                     ->url('/')
